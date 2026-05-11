@@ -1,0 +1,70 @@
+/* The Nook — news slideshow.
+   3 slides × 20s = 60s loop. Portrait stage 1080×1920 (rotated from landscape browser). */
+
+.tn-portrait-cw .tn-stage {
+  width: 100vh;
+  height: 100vw;
+  inset: auto;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: translateY(100vh) rotate(-90deg);
+  container-type: size;
+  container-name: tnstage;
+}
+
+.tn-root:not(.tn-portrait-cw) .tn-stage {
+  width: 100vw;
+  height: 100vh;
+  container-type: size;
+  container-name: tnstage;
+}
+
+/* Slide cross-fade is JS-driven (TheNookLoop sets isActive). The transition
+   timing lives on the inline style of each slide so the count can be dynamic. */
+
+/* Cold-start slate — quiet slow breathing on the tagline */
+@keyframes tn-slate-breath {
+  0%, 100% { opacity: 0.92; }
+  50%      { opacity: 1; }
+}
+.tn-slate-tagline {
+  animation: tn-slate-breath 8s ease-in-out infinite both;
+}
+
+/* Eyebrow "fetching intel" — soft pulse */
+@keyframes tn-slate-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 1; }
+}
+.tn-slate-eyebrow {
+  animation: tn-slate-pulse 2.4s ease-in-out infinite both;
+}
+
+/* LIVE FEED dot — sharper blink */
+@keyframes tn-live-blink {
+  0%, 70%, 100% { opacity: 1; }
+  80%, 90%      { opacity: 0.25; }
+}
+.tn-live-dot {
+  animation: tn-live-blink 1.6s ease-in-out infinite both;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Topic cells fade up sequentially on mount */
+@keyframes tn-topic-in {
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.tn-topic-cell {
+  opacity: 0;
+  animation: tn-topic-in 0.9s cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tn-slate-tagline, .tn-slate-eyebrow, .tn-live-dot, .tn-topic-cell {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "doppler run -- next dev",
+    "dev:no-doppler": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "doppler run -- next start",
+    "start:no-doppler": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "next": "14.2.35",
+    "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "three": "^0.184.0"
