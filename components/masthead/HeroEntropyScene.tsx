@@ -53,8 +53,8 @@ export default function HeroEntropyScene() {
       <div className="hero-scene-fade relative w-full h-full [&_canvas]:!w-full [&_canvas]:!h-full">
         <Canvas
           camera={{ position: [0, 18, 30], fov: 29 }}
-          dpr={[1, 1.5]}
-          gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
+          dpr={[0.75, 1]}
+          gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', background: 'transparent' }}
         >
           <ambientLight intensity={0.1} />

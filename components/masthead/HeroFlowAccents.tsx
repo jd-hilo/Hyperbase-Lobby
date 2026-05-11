@@ -113,15 +113,11 @@ export function HeroFlowAccents() {
     <group>
       {/* Particles flowing into broker */}
       {PATHS.map((p, i) => (
-        <group key={`p-${i}`}>
-          <TravelingParticle start={p.start} end={BROKER} speed={p.speed} color={p.color} phase={i * 0.18} />
-          <TravelingParticle start={p.start} end={BROKER} speed={p.speed} color={p.color} phase={i * 0.18 + 0.5} />
-        </group>
+        <TravelingParticle key={`p-${i}`} start={p.start} end={BROKER} speed={p.speed} color={p.color} phase={i * 0.18} />
       ))}
 
       {/* Outbound dispatch from broker to compute */}
       <TravelingParticle start={BROKER} end={[cx(325), 0.05, cz(445)]} speed={1.0} color="#ffffff" phase={0.0} />
-      <TravelingParticle start={BROKER} end={[cx(325), 0.05, cz(445)]} speed={1.0} color="#ffffff" phase={0.5} />
     </group>
   )
 }
