@@ -27,8 +27,10 @@ export function FrontDoorLoop() {
   return (
     <div className={`fd-root fixed inset-0 z-[100] bg-void overflow-hidden ${portrait ? 'fd-portrait-cw' : ''}`}>
       <div className="fd-stage absolute inset-0 bg-void overflow-hidden">
-        <div className="fd-scene fd-scene-hero absolute inset-0">
-          <HeroEntropyScene />
+        <div className="fd-scene fd-scene-hero absolute inset-0 grid place-items-center">
+          <div className="fd-hero-aspect">
+            <HeroEntropyScene />
+          </div>
         </div>
 
         <LogoReveal />

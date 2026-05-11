@@ -69,6 +69,16 @@
   animation: none !important;
 }
 
+/* Hard-locked landscape dimensions matching the live site's masthead aspect.
+   The HeroEntropy scene was composed for a wide ~16:9 canvas; forcing it
+   into a portrait box stretches the framing. Parent's place-items-center
+   recenters this fixed box as the kiosk stage grows or shrinks. */
+.fd-hero-aspect {
+  position: relative;
+  width: 857px;
+  height: 643px;
+}
+
 /* ============ Tagline (scene 2) ============
    G1 in 4.4→5.2s (22%→26%), G2 in 5.8→6.6s (29%→33%).
    Both hold to 10.5s (52.5%), out by 11.5s (57.5%) */

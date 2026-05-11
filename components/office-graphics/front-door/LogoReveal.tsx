@@ -7,7 +7,7 @@ export function LogoReveal() {
         aria-hidden
         draggable={false}
         className="fd-logo select-none"
-        style={{ width: '78cqi' }}
+        style={{ width: '58.5cqi' }}
       />
     </div>
   )
