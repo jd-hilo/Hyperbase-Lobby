@@ -65,7 +65,7 @@
   animation: fd-hero-cycle 20s cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 .fd-scene-hero .hero-scene-fade {
-  opacity: 0.7 !important;
+  opacity: 0.9 !important;
   animation: none !important;
 }
 

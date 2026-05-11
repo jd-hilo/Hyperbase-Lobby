@@ -9,13 +9,13 @@ const cx = (x: number) => (x - 360) * S
 const cz = (y: number) => (y - 220) * S
 
 // Flow paths mirroring DataFlowLayer's quadratic Bezier curves into the broker.
-const BROKER: [number, number, number] = [cx(175), 0.3, cz(445)]
+const BROKER: [number, number, number] = [cx(175), 0.05, cz(445)]
 const PATHS: { start: [number, number, number]; speed: number; color: string }[] = [
-  { start: [cx(155),   0.3, cz(168)], speed: 0.55, color: '#ffffff' },
-  { start: [cx(118),   0.3, cz(101)], speed: 0.40, color: '#ffffff' },
-  { start: [cx(420),   0.3, cz(220)], speed: 0.80, color: '#ffffff' },
-  { start: [cx(550),   0.3, cz(220)], speed: 0.65, color: '#ffffff' },
-  { start: [cx(583.5), 0.3, cz(368)], speed: 0.50, color: '#ffffff' },
+  { start: [cx(155),   0.05, cz(168)], speed: 0.55, color: '#ffffff' },
+  { start: [cx(118),   0.05, cz(101)], speed: 0.40, color: '#ffffff' },
+  { start: [cx(420),   0.05, cz(220)], speed: 0.80, color: '#ffffff' },
+  { start: [cx(550),   0.05, cz(220)], speed: 0.65, color: '#ffffff' },
+  { start: [cx(583.5), 0.05, cz(368)], speed: 0.50, color: '#ffffff' },
 ]
 
 function bezierPoint(
@@ -24,7 +24,7 @@ function bezierPoint(
   t: number,
 ): THREE.Vector3 {
   const mid = new THREE.Vector3().lerpVectors(a, b, 0.5)
-  mid.y += 0.25
+  mid.y += 0.08
   return new THREE.QuadraticBezierCurve3(a, mid, b).getPoint(t)
 }
 
@@ -120,8 +120,8 @@ export function HeroFlowAccents() {
       ))}
 
       {/* Outbound dispatch from broker to compute */}
-      <TravelingParticle start={BROKER} end={[cx(325), 0.3, cz(445)]} speed={1.0} color="#ffffff" phase={0.0} />
-      <TravelingParticle start={BROKER} end={[cx(325), 0.3, cz(445)]} speed={1.0} color="#ffffff" phase={0.5} />
+      <TravelingParticle start={BROKER} end={[cx(325), 0.05, cz(445)]} speed={1.0} color="#ffffff" phase={0.0} />
+      <TravelingParticle start={BROKER} end={[cx(325), 0.05, cz(445)]} speed={1.0} color="#ffffff" phase={0.5} />
     </group>
   )
 }

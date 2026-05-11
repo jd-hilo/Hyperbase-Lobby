@@ -8,7 +8,6 @@ import { DataFlowLayer } from '@/components/diagrams/DataFlowLayer'
 import { AnnotationsVisibleContext } from '@/components/diagrams/AnnotationLabel'
 import { TwinProvider, useFlowSpeed } from '@/lib/twin/context'
 import { HeroFlowAccents } from './HeroFlowAccents'
-
 function SceneInterior() {
   const flowSpeed = useFlowSpeed()
   return (
