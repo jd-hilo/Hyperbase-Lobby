@@ -48,8 +48,8 @@
 @keyframes fd-hero-cycle {
   0%    { opacity: 0; }
   13%   { opacity: 0; }                          /* hold dark until 2.6s */
-  18%   { opacity: 0.9; }                        /* full by 3.6s, capped at 0.9 */
-  52.5% { opacity: 0.9; }                        /* hold to 10.5s, alongside tagline */
+  18%   { opacity: 0.5; }                        /* full by 3.6s, capped at 0.9 */
+  52.5% { opacity: 0.5; }                        /* hold to 10.5s, alongside tagline */
   57.5% { opacity: 0; }                          /* fade out with "innovation is limitless." by 11.5s */
   100%  { opacity: 0; }                          /* stats scene plays on pure black */
 }

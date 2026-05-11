@@ -7,7 +7,6 @@ import { DCRoom } from '@/components/diagrams/DCRoom'
 import { DataFlowLayer } from '@/components/diagrams/DataFlowLayer'
 import { AnnotationsVisibleContext } from '@/components/diagrams/AnnotationLabel'
 import { TwinProvider, useFlowSpeed } from '@/lib/twin/context'
-import { HeroFlowAccents } from './HeroFlowAccents'
 function SceneInterior() {
   const flowSpeed = useFlowSpeed()
   return (
@@ -27,7 +26,6 @@ function SceneInterior() {
         />
         <DCRoom onSelect={() => {}} selected={null} />
         <DataFlowLayer flowSpeed={flowSpeed} />
-        <HeroFlowAccents />
       </Suspense>
     </AnnotationsVisibleContext.Provider>
   )
