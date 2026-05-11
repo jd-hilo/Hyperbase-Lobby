@@ -1,10 +1,10 @@
 export function TaglineReveal() {
   return (
-    <div className="fd-scene fd-scene-tagline absolute inset-0 flex flex-col justify-end pb-[12cqh] px-[8cqi]">
+    <div className="fd-scene fd-scene-tagline absolute inset-0 flex flex-col justify-end" style={{ paddingBottom: '230px', paddingLeft: '86px', paddingRight: '86px' }}>
       <h1
         className="font-sans font-light text-signal"
         style={{
-          fontSize: 'clamp(40px, 11cqi, 96px)',
+          fontSize: '96px',
           lineHeight: 0.98,
           letterSpacing: '-0.03em',
         }}

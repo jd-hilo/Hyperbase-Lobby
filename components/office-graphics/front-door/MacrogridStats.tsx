@@ -7,7 +7,7 @@ const STATS = [
 
 export function MacrogridStats() {
   return (
-    <div className="fd-scene fd-scene-stats absolute inset-0 flex flex-col justify-center px-[8cqi]">
+    <div className="fd-scene fd-scene-stats absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '86px', paddingRight: '86px' }}>
       <div className="fd-stats-eyebrow flex items-center gap-3 mb-12">
         <span className="font-mono text-[12px] tracking-[0.18em] text-trace">■</span>
         <span className="font-mono text-[12px] tracking-[0.18em] text-trace">
@@ -29,14 +29,14 @@ export function MacrogridStats() {
             key={s.label}
             className={`fd-stats-cell fd-stats-cell-${i + 1}`}
             style={{
-              paddingLeft: i % 2 === 1 ? '3cqi' : 0,
+              paddingLeft: i % 2 === 1 ? '32px' : 0,
               borderLeft: i % 2 === 1 ? '1px solid #3F4654' : 'none',
             }}
           >
             <div
               className="font-mono font-medium text-signal leading-none"
               style={{
-                fontSize: 'clamp(40px, 12cqi, 96px)',
+                fontSize: '96px',
                 letterSpacing: '-0.02em',
                 fontVariantNumeric: 'tabular-nums',
                 whiteSpace: 'nowrap',
