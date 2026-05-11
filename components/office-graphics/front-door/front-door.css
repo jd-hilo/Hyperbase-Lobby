@@ -54,6 +54,18 @@
   100%  { opacity: 0; }                          /* stats scene plays on pure black */
 }
 
+/* Watermark logo — hidden during scene 1, visible scenes 2–3 */
+@keyframes fd-watermark-cycle {
+  0%, 16%  { opacity: 0; }
+  20%      { opacity: 1; }
+  92.5%    { opacity: 1; }
+  97.5%    { opacity: 0; }
+  100%     { opacity: 0; }
+}
+.fd-watermark {
+  animation: fd-watermark-cycle 20s cubic-bezier(0.2, 0, 0, 1) infinite both;
+}
+
 /* Logo */
 .fd-logo {
   animation: fd-logo-cycle 20s cubic-bezier(0.2, 0, 0, 1) infinite both;

@@ -34,6 +34,17 @@ export function FrontDoorLoop() {
         </div>
 
         <LogoReveal />
+
+        {/* Small watermark logo — top-left on scenes 2 & 3, hidden during logo reveal */}
+        <img
+          src="/brand/hb-monogram.png"
+          alt=""
+          aria-hidden
+          draggable={false}
+          className="fd-watermark pointer-events-none select-none absolute"
+          style={{ top: '72px', left: '86px', width: '80px' }}
+        />
+
         <TaglineReveal />
         <MacrogridStats />
 
