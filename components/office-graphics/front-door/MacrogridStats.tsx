@@ -9,8 +9,8 @@ export function MacrogridStats() {
   return (
     <div className="fd-scene fd-scene-stats absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '86px', paddingRight: '86px' }}>
       <div className="fd-stats-eyebrow flex items-center gap-3 mb-12">
-        <span className="font-mono text-[16px] tracking-[0.18em] text-trace">■</span>
-        <span className="font-mono text-[16px] tracking-[0.18em] text-trace">
+        <span className="font-mono text-[21px] tracking-[0.18em] text-trace">■</span>
+        <span className="font-mono text-[21px] tracking-[0.18em] text-trace">
           THE AMERICAN MACROGRID
         </span>
         <img
@@ -52,7 +52,7 @@ export function MacrogridStats() {
                 </span>
               )}
             </div>
-            <p className="font-mono text-[14px] tracking-[0.14em] text-trace mt-4">
+            <p className="font-mono text-[18px] tracking-[0.14em] text-trace mt-4">
               {s.label}
             </p>
           </div>
@@ -60,7 +60,7 @@ export function MacrogridStats() {
       </div>
 
       <div
-        className="fd-stats-footer mt-14 pt-6 font-mono text-[14px] tracking-[0.22em] text-trace"
+        className="fd-stats-footer mt-14 pt-6 font-mono text-[18px] tracking-[0.22em] text-trace"
         style={{ borderTop: '1px solid #3F4654' }}
       >
         AI-ORCHESTRATED · DISTRIBUTED · AMERICAN
