@@ -1,0 +1,167 @@
+/* Front-door office loop — 20s, infinite. 9:16 stage centered in viewport. */
+
+/* Kiosk default: physical panel mounted in portrait, browser viewport is landscape.
+   The .fd-portrait-cw wrapper rotates the stage 90° CCW so content reads upright
+   on the rotated panel. Add ?landscape=1 to preview without rotation. */
+.fd-portrait-cw .fd-stage {
+  width: 100vh;
+  height: 100vw;
+  inset: auto;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: translateY(100vh) rotate(-90deg);
+  container-type: size;
+  container-name: fdstage;
+}
+
+/* Landscape preview / non-rotated displays — stage fills viewport directly. */
+.fd-root:not(.fd-portrait-cw) .fd-stage {
+  width: 100vw;
+  height: 100vh;
+  container-type: size;
+  container-name: fdstage;
+}
+
+/* 20s master loop — 1% = 200ms.
+   0.0–0.8s   logo fade in
+   0.8–2.6s   logo hold
+   2.6–3.6s   logo fade out / hero fade in
+   4.4–5.2s   tagline G1 ("When energy / is a given,") fades in
+   5.8–6.6s   tagline G2 ("innovation / is limitless.")  fades in
+   6.6–10.5s  tagline hold over hero
+   10.5–11.5s tagline fades out
+   12.5–13.5s stats scene fades in (eyebrow → cells → footer staggered)
+   13.5–18.5s stats hold
+   18.5–19.5s stats fade out
+   19.5–20.0s hero fades out, loop restarts
+*/
+
+@keyframes fd-logo-cycle {
+  0%   { opacity: 0; transform: scale(0.94); }
+  4%   { opacity: 1; transform: scale(1); }      /* 0.8s in */
+  13%  { opacity: 1; transform: scale(1); }      /* hold to 2.6s */
+  16%  { opacity: 0; transform: scale(1.04); }   /* out by 3.2s */
+  100% { opacity: 0; transform: scale(0.94); }
+}
+
+@keyframes fd-hero-cycle {
+  0%    { opacity: 0; }
+  13%   { opacity: 0; }                          /* hold dark until 2.6s */
+  18%   { opacity: 1; }                          /* full by 3.6s */
+  52.5% { opacity: 1; }                          /* hold to 10.5s, alongside tagline */
+  57.5% { opacity: 0; }                          /* fade out with "innovation is limitless." by 11.5s */
+  100%  { opacity: 0; }                          /* stats scene plays on pure black */
+}
+
+/* Logo */
+.fd-logo {
+  animation: fd-logo-cycle 20s cubic-bezier(0.2, 0, 0, 1) infinite both;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.08));
+}
+
+/* Hero scene — override site-wide .hero-scene-fade (caps at 0.5) to full strength */
+.fd-scene-hero {
+  animation: fd-hero-cycle 20s cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.fd-scene-hero .hero-scene-fade {
+  opacity: 0.7 !important;
+  animation: none !important;
+}
+
+/* ============ Tagline (scene 2) ============
+   G1 in 4.4→5.2s (22%→26%), G2 in 5.8→6.6s (29%→33%).
+   Both hold to 10.5s (52.5%), out by 11.5s (57.5%) */
+.fd-tag-group-1 { animation: fd-tag-group-1-cycle 20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+.fd-tag-group-2 { animation: fd-tag-group-2-cycle 20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+
+@keyframes fd-tag-group-1-cycle {
+  0%, 22% { opacity: 0; transform: translateY(28px); }
+  26%     { opacity: 1; transform: translateY(0); }
+  52.5%   { opacity: 1; transform: translateY(0); }
+  57.5%   { opacity: 0; transform: translateY(0); }
+  100%    { opacity: 0; transform: translateY(0); }
+}
+
+@keyframes fd-tag-group-2-cycle {
+  0%, 29% { opacity: 0; transform: translateY(28px); }
+  33%     { opacity: 1; transform: translateY(0); }
+  52.5%   { opacity: 1; transform: translateY(0); }
+  57.5%   { opacity: 0; transform: translateY(0); }
+  100%    { opacity: 0; transform: translateY(0); }
+}
+
+/* ============ Macrogrid stats (scene 3) ============
+   Eyebrow in 12.5s (62.5%), cells stagger 12.7s–13.5s, footer 13.7s.
+   Everything holds to 18.5s (92.5%), out by 19.5s (97.5%). */
+.fd-stats-eyebrow  { animation: fd-stats-eyebrow-cycle 20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+.fd-stats-cell-1   { animation: fd-stats-cell-1-cycle  20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+.fd-stats-cell-2   { animation: fd-stats-cell-2-cycle  20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+.fd-stats-cell-3   { animation: fd-stats-cell-3-cycle  20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+.fd-stats-cell-4   { animation: fd-stats-cell-4-cycle  20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+.fd-stats-footer   { animation: fd-stats-footer-cycle  20s cubic-bezier(0.2, 0, 0, 1) infinite both; }
+
+@keyframes fd-stats-eyebrow-cycle {
+  0%, 62.5% { opacity: 0; transform: translateY(14px); }
+  65.5%     { opacity: 1; transform: translateY(0); }   /* 13.1s */
+  92.5%     { opacity: 1; transform: translateY(0); }
+  97.5%     { opacity: 0; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(0); }
+}
+
+/* Cells stagger 200ms apart starting at 12.9s (64.5%) */
+@keyframes fd-stats-cell-1-cycle {
+  0%, 64.5% { opacity: 0; transform: translateY(24px); }
+  68%       { opacity: 1; transform: translateY(0); }   /* 13.6s */
+  92.5%     { opacity: 1; transform: translateY(0); }
+  97.5%     { opacity: 0; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(0); }
+}
+@keyframes fd-stats-cell-2-cycle {
+  0%, 65.5% { opacity: 0; transform: translateY(24px); }
+  69%       { opacity: 1; transform: translateY(0); }
+  92.5%     { opacity: 1; transform: translateY(0); }
+  97.5%     { opacity: 0; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(0); }
+}
+@keyframes fd-stats-cell-3-cycle {
+  0%, 66.5% { opacity: 0; transform: translateY(24px); }
+  70%       { opacity: 1; transform: translateY(0); }
+  92.5%     { opacity: 1; transform: translateY(0); }
+  97.5%     { opacity: 0; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(0); }
+}
+@keyframes fd-stats-cell-4-cycle {
+  0%, 67.5% { opacity: 0; transform: translateY(24px); }
+  71%       { opacity: 1; transform: translateY(0); }
+  92.5%     { opacity: 1; transform: translateY(0); }
+  97.5%     { opacity: 0; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(0); }
+}
+
+@keyframes fd-stats-footer-cycle {
+  0%, 70%   { opacity: 0; transform: translateY(10px); }
+  73%       { opacity: 1; transform: translateY(0); }   /* 14.6s */
+  92.5%     { opacity: 1; transform: translateY(0); }
+  97.5%     { opacity: 0; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(0); }
+}
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .fd-logo,
+  .fd-tag-group-1,
+  .fd-tag-group-2,
+  .fd-stats-eyebrow,
+  .fd-stats-cell-1,
+  .fd-stats-cell-2,
+  .fd-stats-cell-3,
+  .fd-stats-cell-4,
+  .fd-stats-footer {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .fd-scene-hero {
+    opacity: 0.5 !important;
+  }
+}

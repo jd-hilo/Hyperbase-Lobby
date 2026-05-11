@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: var(--font-inter), system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    cursor: none;
+  }
+  * { border-radius: 0; }
+  .rounded-full { border-radius: 9999px; }
+}
+
+/* Hero 3D scene fade-in (kept for parity with the original site rule that
+   HeroEntropyScene's inner wrapper depends on). Overridden by front-door.css
+   for the lobby loop. */
+@keyframes hero-scene-fade {
+  from { opacity: 0; }
+  to   { opacity: 0.5; }
+}
+.hero-scene-fade {
+  animation: hero-scene-fade 1.4s cubic-bezier(0.2, 0, 0, 1) 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
