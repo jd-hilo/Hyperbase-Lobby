@@ -1,5 +1,5 @@
 const STATS = [
-  { n: '11+', unit: ' GW', label: 'ACTIVE PIPELINE' },
+  { n: '20+', unit: ' GW', label: 'ACTIVE PIPELINE' },
   { n: '16',  unit: '',    label: 'PROJECTS' },
   { n: '6',   unit: '',    label: 'STATES' },
   { n: '2.6', unit: ' TW', label: 'QUEUED CAPACITY' },

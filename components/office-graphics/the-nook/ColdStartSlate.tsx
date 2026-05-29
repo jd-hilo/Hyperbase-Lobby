@@ -124,8 +124,7 @@ export function ColdStartSlate({ isActive = true }: Props) {
             letterSpacing: '-0.03em',
           }}
         >
-          <span className="block">The Nook</span>
-          <span className="block text-trace">HyperBase Intel</span>
+          <span className="block">HyperBase Intel</span>
         </h1>
 
         {/* Topic monitor grid */}
@@ -181,7 +180,7 @@ export function ColdStartSlate({ isActive = true }: Props) {
           AI-CURATED · DAILY · 09:00 CT
         </span>
         <span className="font-mono text-[11px] tracking-[0.22em] text-trace">
-          THE NOOK / V1
+          HYPERBASE INTELLIGENCE
         </span>
       </div>
     </div>

@@ -31,8 +31,8 @@ export function NewsSlide({ item, index, total, isActive }: Props) {
       style={{
         paddingLeft: '110px',
         paddingRight: '110px',
-        paddingTop: '96px',
-        paddingBottom: '96px',
+        paddingTop: '72px',
+        paddingBottom: '72px',
         opacity: isActive ? 1 : 0,
         transform: isActive ? 'translateY(0)' : 'translateY(12px)',
         transition: 'opacity 800ms cubic-bezier(0.2, 0, 0, 1), transform 800ms cubic-bezier(0.2, 0, 0, 1)',
@@ -71,7 +71,7 @@ export function NewsSlide({ item, index, total, isActive }: Props) {
           fontSize: '88px',
           lineHeight: 0.98,
           letterSpacing: '-0.03em',
-          marginTop: '72px',
+          marginTop: '48px',
           maxWidth: '1500px',
         }}
       >
@@ -92,11 +92,8 @@ export function NewsSlide({ item, index, total, isActive }: Props) {
         {item.summary}
       </p>
 
-      {/* Spacer */}
-      <div className="flex-1" />
-
-      {/* Bottom-right QR block */}
-      <div className="flex justify-end">
+      {/* QR block — sits right under the summary */}
+      <div className="flex justify-end" style={{ marginTop: '36px' }}>
         <div className="flex flex-col items-end" style={{ gap: '14px' }}>
           <span
             className="font-mono text-trace"
